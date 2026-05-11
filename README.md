@@ -10,26 +10,6 @@
 composer require paycryptoone/paycrypto-payouts-php-client
 ```
 
-Без Packagist — только **GitHub** как VCS. В репозитории есть **git-тег `v1.0.0`**, поэтому в корневом проекте достаточно стабильного режима по умолчанию (без `minimum-stability: dev`):
-
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/PayCryptoOne/paycrypto-payouts-php-client.git"
-    }
-  ],
-  "require": {
-    "paycryptoone/paycrypto-payouts-php-client": "^1.0"
-  }
-}
-```
-
-Дальше `composer update paycryptoone/paycrypto-payouts-php-client`. Composer возьмёт стабильную **`1.0.0`** с тега.
-
-Нужна именно последняя **`main`** без ожидания нового тега — добавь в корень проекта **`"minimum-stability": "dev"`** и **`"prefer-stable": true`**, либо укажи в `require` версию **`dev-main`**. В манифесте пакета задан **`branch-alias`** (`dev-main` → `1.0.x-dev`), чтобы ограничение **`^1.0`** согласовывалось с dev-веткой.
-
 Локально из клона:
 
 ```bash
