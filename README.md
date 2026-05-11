@@ -4,13 +4,13 @@
 
 ## Установка
 
-После публикации на Packagist под именем **`paycryptoone/paycrypto-payouts-php-client`**:
+С **Packagist** (предпочтительно), пакет **`paycryptoone/paycrypto-payouts-php-client`**:
 
 ```bash
 composer require paycryptoone/paycrypto-payouts-php-client
 ```
 
-Пока на Packagist нет стабильного релиза или нужна последняя **`main`** с GitHub — **VCS** в корневом `composer.json` проекта. У корневого проекта должна быть допустима установка dev-версий (иначе Composer не возьмёт ветку с GitHub):
+Без Packagist — только **GitHub** как VCS. В репозитории есть **git-тег `v1.0.0`**, поэтому в корневом проекте достаточно стабильного режима по умолчанию (без `minimum-stability: dev`):
 
 ```json
 {
@@ -22,15 +22,13 @@ composer require paycryptoone/paycrypto-payouts-php-client
   ],
   "require": {
     "paycryptoone/paycrypto-payouts-php-client": "^1.0"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  }
 }
 ```
 
-В `composer.json` пакета задан **`branch-alias`**: ветка `dev-main` считается как `1.0.x-dev`, поэтому ограничение **`^1.0`** согласуется с установкой с GitHub. После появления стабильного релиза на Packagist можно оставить только `composer require paycryptoone/paycrypto-payouts-php-client` и при необходимости убрать `repositories` и `minimum-stability`.
+Дальше `composer update paycryptoone/paycrypto-payouts-php-client`. Composer возьмёт стабильную **`1.0.0`** с тега.
 
-Затем `composer update paycryptoone/paycrypto-payouts-php-client`. Ветка по умолчанию на GitHub — `main` (`dev-main` в Composer).
+Нужна именно последняя **`main`** без ожидания нового тега — добавь в корень проекта **`"minimum-stability": "dev"`** и **`"prefer-stable": true`**, либо укажи в `require` версию **`dev-main`**. В манифесте пакета задан **`branch-alias`** (`dev-main` → `1.0.x-dev`), чтобы ограничение **`^1.0`** согласовывалось с dev-веткой.
 
 Локально из клона:
 
